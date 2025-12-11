@@ -984,7 +984,10 @@ body {
 
 }
 
+
+
 /* Why Researchers Trust ResearchEdit4U */
+
 
 .trust-section {
     text-align: center;
@@ -1013,9 +1016,9 @@ body {
     padding: 24px 20px;
     width: 300px;
     border-radius: 10px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     transition: all 0.4s ease;
-    box-shadow: 2px 2px 5px #888888;
+    /* box-shadow: 2px 2px 5px #888888; */
     border-bottom: #001c55 2px solid;
 }
 

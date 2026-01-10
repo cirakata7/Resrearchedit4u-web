@@ -1,101 +1,128 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaArrowUp } from "react-icons/fa";
-import logo from "../images/footerlogo.webp";
+import React from "react";
 import "../style/style.css";
 
-const Footer = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => setIsVisible(window.scrollY > 300);
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const links = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/services", label: "Services" },
-    { to: "/blogs", label: "Blogs" },
-    { to: "/contact", label: "Contact" },
-    { to: "/career", label: "Career" }
-
-  ];
+export default function Footer() {
+  const backToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="footer-container">
-      {/* Footer Top */}
-      <div className="footer-top">
-        {/* Logo */}
-        <div className="footer-logo-container">
-          <img src={logo} alt="ResearchEdit4U Logo" className="logofooter" />
-        </div>
+    <footer className="ftWrap">
+      <div className="ftShell">
+        {/* Newsletter strip */}
+        <section className="ftTop">
+          <div className="ftTopLeft">
+            <div className="ftTopTitle">
+              Share what you&apos;re working on — get next-step options in 1 working day.
+            </div>
+            <div className="ftTopSub">
+              Get practical resources on rejection, journal choice, and peer review. No spam.
+            </div>
 
-        {/* About */}
-        <div className="footer-brand">
-          <h3 className="footer-title">ResearchEdit4U</h3>
-          <p className="footer-description">
-            ResearchEdit4U delivers exactly what you need — customised academic support tailored to your requirements.
-          </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="footer-title">Quick Links</h3>
-          <ul className="footer-links">
-            {links.map((link, index) => (
-              <li key={index}>
-                <Link to={link.to} onClick={scrollToTop}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div className="footer-contact">
-          <h3 className="footer-title">Contact Us</h3>
-          <p><b>Email:</b>  <a href="mailto:info@researchedit4u.in">info@researchedit4u.in</a></p>
-          <p><b>Phone:</b> <a href="tel:+918093778526">+91-8093778526</a></p>
-          <p> <b>Location:</b> <a href="Location">Bhubaneswar, Odisha 751020</a></p>
-        </div>
-
-        {/* Social */}
-        <div className="footer-social">
-          <h3 className="footer-title">Follow Us</h3>
-          <div className="social-icons">
-            <a href="#" className="social-icon"><FaFacebook /></a>
-            <a href="#" className="social-icon"><FaInstagram /></a>
-            <a href="#" className="social-icon"><FaLinkedin /></a>
+            <div className="ftPills" aria-hidden="true">
+              <span className="ftPill">Ethics-first</span>
+              <span className="ftPill">Privacy-respectful</span>
+              <span className="ftPill">Unsubscribe anytime</span>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Footer Bottom */}
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} ResearchEdit4U. All Rights Reserved.</p>
-        {isVisible && (
-          <button className="scroll-top-btn show" onClick={scrollToTop}>
-            <FaArrowUp />
+          <form
+            action="https://formspree.io/f/xvzpaakg"
+            method="POST"
+            className="ftSubscribe"
+          >
+            <label className="ftLabel" htmlFor="footerEmail">
+              Email for updates & resources
+            </label>
+
+            <div className="ftInputRow">
+              <div className="ftInputWrap">
+                <span className="ftMailIcon" aria-hidden="true">✉</span>
+                <input
+                  id="footerEmail"
+                  className="ftInput"
+                  type="email"
+                  name="email"
+                  placeholder="you@university.edu"
+                  required
+                />
+              </div>
+
+              <button className="ftBtnPrimary" type="submit">
+                Notify me
+              </button>
+            </div>
+
+            <div className="ftMeta">
+              We send 1–2 emails/month. No spam.
+            </div>
+          </form>
+        </section>
+
+        <div className="ftDivider" />
+
+        {/* Link columns */}
+        <section className="ftGrid">
+          <div className="ftCol">
+            <div className="ftColTitle">ABOUT / TRUST</div>
+            <p className="ftColText">
+              Specialised academic support for researchers, universities, and R&amp;D teams — with
+              ethics-first editorial and publication strategy.
+            </p>
+
+            <div className="ftLinks">
+              <a href="#!" className="ftLinkStrong">Ethical support policy</a>
+              <a href="#!" className="ftLinkStrong">Confidentiality</a>
+              <a href="#!" className="ftLinkStrong">No-ghostwriting policy</a>
+            </div>
+          </div>
+
+          <div className="ftCol">
+            <div className="ftColTitle">SERVICES</div>
+            <div className="ftLinks">
+              <a href="#!" className="ftLinkStrong">Editorial Support</a>
+              <a href="#!" className="ftLinkStrong">Data &amp; Statistics</a>
+              <a href="#!" className="ftLinkStrong">Journal Selection &amp; Submission</a>
+              <a href="#!" className="ftLinkStrong">Quick Offers</a>
+            </div>
+          </div>
+
+          <div className="ftCol">
+            <div className="ftColTitle">RESOURCES (RE MINDS)</div>
+            <div className="ftLinks">
+              <a href="#!" className="ftLinkStrong">Desk rejection series</a>
+              <a href="#!" className="ftLinkStrong">Journal selection guide</a>
+              <a href="#!" className="ftLinkStrong">AI &amp; similarity explained</a>
+            </div>
+          </div>
+
+          <div className="ftCol">
+            <div className="ftColTitle">CONTACT</div>
+            <div className="ftLinks">
+              <a href="mailto:support@researchedit4u.in" className="ftLinkStrong">
+                support@researchedit4u.in
+              </a>
+              <a href="#!" className="ftLinkStrong">WhatsApp (quick response)</a>
+              <div className="ftLine">Hours: Mon–Sat</div>
+              <a href="#!" className="ftLinkStrong">Book 1:1 Expert Call</a>
+            </div>
+          </div>
+        </section>
+
+        <div className="ftDivider" />
+
+        {/* Bottom row */}
+        <section className="ftBottom">
+          <div className="ftBottomLeft">
+            <span>© ResearchEdit4U</span>
+            <a href="#!" className="ftLegal">Terms</a>
+            <a href="#!" className="ftLegal">Privacy</a>
+            <a href="#!" className="ftLegal">Cookies</a>
+          </div>
+
+          <button className="ftBackTop" type="button" onClick={backToTop}>
+            Back to top <span className="ftUp" aria-hidden="true">↑</span>
           </button>
-        )}
+        </section>
       </div>
-
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/918093778526"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-      >
-        <FaWhatsapp />
-      </a>
     </footer>
   );
-};
-
-export default Footer;
+}

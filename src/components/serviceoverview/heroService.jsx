@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import "../style/style.css";
-import { RE4U_HERO_INTERVAL_MS, RE4U_HERO_SLIDES } from "../content/serviceoverview.js";
+import "../../assets/style/style.css";
+import { RE4U_HERO_INTERVAL_MS, RE4U_HERO_SLIDES } from "../../assets/content/servicesoverviewdata/heroServices";
 
 // ---------- Toolkit download helpers ----------
 function toolkitPayload(kind) {
